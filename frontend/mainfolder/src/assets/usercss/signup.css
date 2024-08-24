@@ -1,0 +1,77 @@
+ /* Remy function */
+
+body {
+  font: 100% / 1.414 "Open Sans", "Roboto", arial, sans-serif;
+  background: #ca4949;
+}
+
+
+.container__child {
+  width: 30%;
+  height:100%;
+  color: #fff;
+
+}
+
+.main_sec{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  /* background: linear-gradient(to bottom, #ca4949, #ff5733); */
+}
+.thumbnail__content {align-self: center;}
+h1,
+h2 {
+  font-weight: 300;
+  color: rgba(255,255,255,1);
+}
+.heading--primary {font-size: 1.999rem;}
+.heading--secondary {font-size: 1.414rem;}
+.thumbnail__links {
+  align-self: flex-end;
+  width: 100%;
+}
+
+.signup__form {
+  padding: 2.5rem;
+  /* background: #ddd5d5; */
+ 
+}
+.typo{
+  margin: 2%  2% 2% 2% ;
+}
+label {
+  font-size: .85rem;
+  text-transform: uppercase;
+  color: #ccc;
+}
+.form-control {
+  background-color: transparent;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0;
+  &:focus {border-color: #111;}
+}
+[type="text"] {color: #111;}
+[type="password"] {color: #111;}
+.btn--form {
+  padding: .5rem 2.5rem;
+  font-size: .95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #000000;
+  background: #ffffff;
+  border-radius: remy(35px);
+
+}
+.signup__link {
+  font-size: .8rem;
+  font-weight: 600;
+  text-decoration: underline;
+  color: #999;
+  &:focus,
+  &:hover {color: darken(#999, 13%);}
+}
