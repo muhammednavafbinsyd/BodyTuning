@@ -28,8 +28,6 @@ function signup() {
   const [invalid,setinvalid] = useState("");
   const handlesubmit = (e) => {
     e.preventDefault();
-    const token = localStorage.getItem("token");
-    axios.defaults.headers.common["Authorization"] = token;
     const validationErrors = [];
     if (!username) {
       setinput1("Enter a username");
