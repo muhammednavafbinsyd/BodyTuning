@@ -187,7 +187,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
                   </SoftTypography>
                 </IconButton>
               </Link>
-              {/* <IconButton
+           <IconButton
                 size="small"
                 color="inherit"
                 sx={navbarMobileMenu}
@@ -196,16 +196,16 @@ function DashboardNavbar({ absolute, light, isMini }) {
                 <Icon className={light ? "text-white" : "text-dark"}>
                   {miniSidenav ? "menu_open" : "menu"}
                 </Icon>
-              </IconButton> */}
-              {/* <IconButton
+              </IconButton> 
+               <IconButton
                 size="small"
                 color="inherit"
                 sx={navbarIconButton}
                 onClick={handleConfiguratorOpen}
               >
                 <Icon>settings</Icon>
-              </IconButton> */}
-              {/* <IconButton
+              </IconButton> 
+               {/* <IconButton
                 size="small"
                 color="inherit"
                 sx={navbarIconButton}
@@ -215,7 +215,7 @@ function DashboardNavbar({ absolute, light, isMini }) {
                 onClick={handleOpenMenu}
               >
                 <Icon className={light ? "text-white" : "text-dark"}>notifications</Icon>
-              </IconButton> */}
+              </IconButton>  */}
               {renderMenu()}
             </SoftBox>
           </SoftBox>

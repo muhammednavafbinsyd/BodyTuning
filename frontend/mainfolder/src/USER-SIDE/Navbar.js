@@ -12,8 +12,6 @@ import logoimage from "../assets/img/Web_capture_1-11-2023_94336_-removebg.png";
 import Button from "react-bootstrap/Button";
 import SoftBox from "components/SoftBox";
 import SoftAvatar from "components/SoftAvatar";
-import CloseIcon from "@mui/icons-material/Close";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 // drawer
 import ToggleButton from "@mui/material/ToggleButton";
 import FormatAlignCenterIcon from "@mui/icons-material/FormatAlignCenter";
@@ -92,8 +90,7 @@ function Navbar() {
             Change Password
           </SoftTypography>{" "}
           <br />
-          <SoftTypography>
-            {" "}
+          <SoftTypography className="cursor-pointer" onClick={Logout}>
             <LogoutIcon /> Log out
           </SoftTypography>
         </ul>
@@ -203,7 +200,6 @@ function Navbar() {
                           </>
                         </SoftTypography>
                       </Dropdown.Item>
-
                       <Dropdown.Item>
                         <SoftTypography component={Link} to={"/mysubscription"}>
                           <CardMembershipIcon /> My subscription
@@ -230,10 +226,9 @@ function Navbar() {
             )}
             {signupHide && (
               <>
-                <a href="/login" className="primary-btn signup-btn">
-                  Login
-                </a>
-
+                <Button className="primary-btn signup-btn" href="/login" >Login</Button>
+                &nbsp;
+                &nbsp; 
                 <SoftBox component={Link} to={"/subscribe"}>
                   <Button variant="secondary">Subscribe</Button>
                 </SoftBox>

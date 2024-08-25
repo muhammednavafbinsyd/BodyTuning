@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import "../assets/usercss/signup.css";
 import axios from "axios";
-import bgsignup from "../assets/img/banner-bg.jpg"
+import bgsignup from "../assets/img/pexels-cesar-galeao-1673528-3289711.jpg"
 import SoftTypography from "components/SoftTypography";
+import { Button } from "react-bootstrap";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function signup() {
   const BaseUrl = process.env.REACT_APP_BASE_URL
   const [username, setusername] = useState("");
@@ -100,7 +103,9 @@ if(validationErrors.length === 0){
   axios
     .post(`${BaseUrl}/userroute/signup`, signupdata)
     .then((response) => {
-      alert("successfully posted");
+      toast.success("Successfully Created Account!", {
+        position: "top-center",
+      });
       window.location.href = "/login";
       setinvalid("")
     })
@@ -113,10 +118,16 @@ if(validationErrors.length === 0){
 }
   };
   return (
-  <div className="main_sec" style={{backgroundImage:`url(${bgsignup})`}}  >
-      <div className="container__child signup__form">
+  <div className="h-auto py-16" style={{backgroundImage:`url(${bgsignup})`,backgroundSize:'cover', 
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',}}  >
+      <ToastContainer />
+      <div className="max-w-xs mx-auto backdrop-blur-none  bg-white/30 rounded-xl overflow-hidden md:max-w-2xl p-4">
+         <div className="max-w-xs mx-auto">
+          <h3 className="text-blue-600"> Create Your Acoount </h3>
+         </div>
         <div className="form-group">
-          {/* <label htmlFor="username">Username</label> */}
+          <label className="block text-black text-xs font-bold mb-2">USER NAME</label>
           <input
             className="form-control"
             type="text"
@@ -131,7 +142,7 @@ if(validationErrors.length === 0){
           </SoftTypography>
         </div>
         <div className="form-group">
-          {/* <label htmlFor="email">Email</label> */}
+          <label className="block text-black text-xs font-bold mb-2">EMAIL</label>
           <input
             className="form-control"
             type="text"
@@ -147,7 +158,7 @@ if(validationErrors.length === 0){
          { invalid && <p style={{color:'red'}}  >{invalid}</p>}
         </div>      
         <div className="form-group">
-          {/* <label htmlFor="Phone number">Phone number</label> */}
+          <label className="block text-black text-xs font-bold mb-2">PHONE NUMBER</label>
           <input
             className="form-control"
             type="number"
@@ -162,7 +173,7 @@ if(validationErrors.length === 0){
           </SoftTypography>
         </div>
         <div className="form-group">
-          {/* <label htmlFor="password">Password</label> */}
+          <label className="block text-black text-xs font-bold mb-2">PASSWORD</label>
           <input
             className="form-control"
             type="password"
@@ -177,7 +188,7 @@ if(validationErrors.length === 0){
           </SoftTypography>
         </div>
         <div className="form-group">
-          {/* <label htmlFor="passwordRepeat">Location</label> */}
+          <label className="block text-black text-xs font-bold mb-2">LOCATION</label>
           <input
             className="form-control"
             type="text"
@@ -192,6 +203,7 @@ if(validationErrors.length === 0){
           </SoftTypography>
         </div>
         <div className="form-group">
+        <label className="block text-black text-xs font-bold mb-2">CITY</label>
           <input
           className="form-control"
           name="city"
@@ -205,7 +217,7 @@ if(validationErrors.length === 0){
           </SoftTypography>
         </div>
         <div className="form-group">
-          {/* <label htmlFor="pin">Pin</label> */}
+          <label className="block text-black text-xs font-bold mb-2">PIN</label>
           <input
           className="form-control"
           name="pin"
@@ -219,7 +231,7 @@ if(validationErrors.length === 0){
           </SoftTypography>
         </div>
         <div className="form-group">
-          {/* <label htmlFor="country" >Country</label> */}
+          <label className="block text-black text-xs font-bold mb-2">COUNTRY</label>
           <input
           className="form-control"
           name="country"
@@ -232,18 +244,15 @@ if(validationErrors.length === 0){
           </SoftTypography>
         </div>
         <div className="m-t-lg">
-          <ul className="list-inline">
+          <ul className="list-inline py-2">
             <li>
-              <input
-                className="btn btn--form"
-                type="submit"
-                defaultValue="Register"
-                onClick={handlesubmit}
-              />
+              <Button onClick={handlesubmit} className="text-black bg-transparent "  type="submit">
+              SIGN UP
+              </Button>
             </li>
             <li>
-              <a className="signup__link" href="/login">
-                I am already a member
+              <a className="text-blue  text-sm" href="/login">
+                I AM ALREADY A MEMBER
               </a>
             </li>
           </ul>

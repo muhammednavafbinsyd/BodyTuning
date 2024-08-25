@@ -58,7 +58,6 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
     function handleMiniSidenav() {
       setMiniSidenav(dispatch, window.innerWidth < 1200);
     }
-
     /** 
      The event listener that's calling the handleMiniSidenav function when resizing the window.
     */

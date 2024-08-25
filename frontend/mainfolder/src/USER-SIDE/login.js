@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
-import "../assets/usercss/signup.css";
+import React, { useState } from "react";
 import axios from "axios";
 import bglogin from "../assets/img/banner-bg.jpg";
+import { Button } from "react-bootstrap";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function login() {
   const BaseUrl = process.env.REACT_APP_BASE_URL
   const [input1, setinput1] = useState("");
@@ -9,6 +12,7 @@ function login() {
   const [invalid, setinvalid] = useState("");
   const [userId, setUserId] = useState("");
   const [list, setlist] = useState("");
+
   function Login() {
     if (input1 === "" && input2 === "") {
       setinvalid("Enter email or password");
@@ -27,13 +31,16 @@ function login() {
             setUserId(response.data.user.id);
             packagecheck(response.data.user.id);
           }
-
-          window.location.href = "/home";
-          alert("successfully logged in");
+          toast.success("Successfully Logged In!", {
+            position: "top-center",
+          });
+          window.location.href="/home"
         })
         .catch((err) => {
           console.log(err)
-          alert("failed to login");
+          toast.error("Failed to Log In!", {
+            position: "top-center",
+          });
           setinvalid("Invalid email or password");
         });
     }
@@ -56,11 +63,22 @@ function login() {
     }
   };
   return (
-    <div className="main_sec" style={{ backgroundImage: `url(${bglogin})` }}>
-      <div  type="form" className="container__child signup__form" >
-        {invalid && <p style={{ color: "red" }}>{invalid}</p>}
+    <div className="py-72" style={{ backgroundImage: `url(${bglogin})`, 
+    backgroundSize: 'cover', 
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+  }}
+    >
+      <ToastContainer 
+         />
+      <div type="form" className="max-w-xs mx-auto backdrop-blur-none  bg-white/30 rounded-xl overflow-hidden md:max-w-2xl p-4" >
+      <div className="max-w-xs mx-auto ">
+          <h3 className="text-blue-600 text-center"> Hello Sign in !</h3>
+         </div>
+        {invalid && <p  className="text-red-600" >{invalid}</p>}
         <div className="form-group">
-          <label htmlFor="email">Email</label>
+
+          <label className="block  text-black text-xs font-bold py-2">EMAIL</label>
           <input
             className="form-control"
             type="text"
@@ -72,7 +90,7 @@ function login() {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="password">Password</label>
+          <label className="block  text-black text-xs font-bold py-2">PASSWORD</label>
           <input
             className="form-control"
             type="password"
@@ -84,21 +102,17 @@ function login() {
           />
         </div>
         <div className="m-t-lg">
-          <ul className="list-inline">
+          <ul className="list-inline py-2">
             <li>
-              <input
-                className="btn btn--form"
-                type="submit"
-                defaultValue="Register"
-                onClick={Login}
-              />
+              <Button className="text-black bg-transparent " onClick={Login} type="submit">
+              SIGN IN
+              </Button>
             </li>
-
-            <a className="signup__link" href="/forgotpassword">
-              <a className="signup__link." href="/signup">
-                create account?{" "}
+            <a className="text-blue  text-sm" href="/signup">
+                CREATE ACCOUNT?&nbsp;&nbsp;
               </a>
-              Forgot Password
+            <a className="text-white text-xs " href="/forgotpassword">
+             FORGOT PASSWORD
             </a>
           </ul>
         </div>
