@@ -50,11 +50,11 @@ export default function App() {
   const [onMouseEnter, setOnMouseEnter] = useState(false);
   const [rtlCache, setRtlCache] = useState(null);
   const { pathname } = useLocation();
+ 
   var template = "Front";
-
   if (
     pathname.search("/addplan") > -1 ||
-    pathname === "/home" ||
+    pathname === "/" ||
     pathname === "/about" ||
     pathname === "/blog" ||
     pathname === "/classes" ||
@@ -84,7 +84,6 @@ export default function App() {
   } else {
     template =  layout;
   }
-
   // Cache for the rtl
   useMemo(() => {
     const cacheRtl = createCache({
@@ -159,6 +158,7 @@ export default function App() {
       </Icon> */}
     </SoftBox>
   );
+
 
   return direction === "rtl" ? (
     <CacheProvider value={rtlCache}>

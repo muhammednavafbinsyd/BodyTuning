@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, json, useLocation, useNavigate, useParams } from "react-router-dom";
-import Navbar from "./Navbar";
+import Navbar from "./navbar";
 import Footer from "./footer";
 import sbp from "../assets/img/pexels-victor-freitas-703014.jpg";
 import Button from "@mui/material/Button";

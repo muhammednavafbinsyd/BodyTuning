@@ -67,8 +67,6 @@ import Workoutfront from "USER-SIDE/workoutplan";
 import Dietfront from "USER-SIDE/dietplan";
 import Trainersprofile from "USER-SIDE/trainersprofile";
 
-// import Navbar from "USER-SIDE/Navbar"
-
 import Users from "layouts/Users";
 import Editprofile from "USER-SIDE/editprofile";
 import Changepassword from "USER-SIDE/changepassword";
@@ -130,21 +128,12 @@ import Salesreport from "./layouts/sales-report"
 // razorpay 
 
 const routes = [
-  // {
-  //   type: "",
-  //   name: "Navbar",
-  //   key: "Navbar",
-  //   route: "/Navbar",
-  //   icon: <Shop size="12px" />,
-  //   component: <Navbar />,
-  //   noCollapse: true,
 
-  // },
   {
     type: "",
     name: "Home",
     key: "Home",
-    route: "/home",
+    route: "/",
     icon: <Shop size="12px" />,
     component: <Home />,
     noCollapse: true,
@@ -496,7 +485,7 @@ const routes = [
     type: "collapse",
     name: "Trainers",
     key: "Trainers",
-    route: "/Trianers",
+    route: "/trianers",
     icon: <SportsGymnasticsIcon size="12px" />,
     component: <Trainers />,
   },

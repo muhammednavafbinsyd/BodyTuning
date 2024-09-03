@@ -1,9 +1,9 @@
 import React from "react";
-import Navbar from "./Navbar";
+import Navbar from "./navbar";
 import bannerimg6 from "../assets/img/hero-bg.jpg";
 import Footer from "./footer";
 import { useEffect, useState, useCallback } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -18,10 +18,8 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 function Workoutplan(){
   const BaseUrl = process.env.REACT_APP_BASE_URL
-  const [list, Setlist] = useState([]);
   const [open, setOpen] = useState(false);
   const [types, settypes] = useState([]);
-  const [hide, sethide] = useState(false);
   const [show, setshow] = useState(true);
   const [profile, setprofile] = useState();
   useEffect(() => {
@@ -61,7 +59,7 @@ function Workoutplan(){
           <div className="row">
             <div className="col-lg-12">
               <div className="breadcrumb-text">
-                <h2>workout </h2>
+                <h2 style={{ fontSize: 'clamp(1.5rem, 2vw + 1rem, 3rem)'}}>workout </h2>
               </div>
             </div>
           </div>
@@ -75,7 +73,7 @@ function Workoutplan(){
                 <div className="col-lg-4 col-md-6" key={index}>
                   <Card style={{ height: "70%", width: "70%" }}>
                     <CardMedia
-                      sx={{ height: 140 }}
+                      sx={{ height:150}}
                       image="/static/images/cards/contemplative-reptile.jpg"
                     />
                     <CardContent>

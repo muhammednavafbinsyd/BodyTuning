@@ -13,11 +13,12 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 import "../src/index.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "App";
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import AccessToken from "../src/accesstokenConfig/accesstokenConfg.js"
 // Soft UI Dashboard React Context Provider
 import { SoftUIControllerProvider } from "context";
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -25,6 +26,7 @@ root.render(
   <BrowserRouter>
     <SoftUIControllerProvider>
       <App />
+      {/* <AccessToken/> */}
     </SoftUIControllerProvider>
   </BrowserRouter>
 );

@@ -1,64 +1,71 @@
+import "../assets/usercss/user-profile.css";
 import React, { useEffect, useState } from "react";
-import "../assets/usercss/userprofile.css";
-import "../assets/usercss/demo.css";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SoftTypography from "components/SoftTypography";
-import Navbar from "./Navbar";
+import Navbar from "./navbar";
 import Footer from "./footer";
 import axios from "axios";
 import Card from "react-bootstrap/Card";
+import Userprofilebg from "../assets/img/hero-bg.jpg"
+
 function userProfile() {
   const BaseUrl = process.env.REACT_APP_BASE_URL
+  const navigate = useNavigate()
   const [userProfile, setuserprofile] = useState("");
   const [list, setList] = useState([]);
   const [packagelist, setpackagelist] = useState([]);
-  const Subscription = async (id) => {
-    try {
-      const response = await axios.get(`${BaseUrl}/userroute/packageIdget/${id}`);
-      setList(response.data);
-    } catch (err) {
-      console.log(err, "Error");
-    }
-  };
-  const packageGet = async () => {
-    try {
-      const response = await axios.get(`${BaseUrl}/userroute/subpacakge`);
-      setpackagelist(response.data);
-    } catch (err) {
-      console.log(err, "Error");
-    }
-  };
   useEffect(() => {
     const getinfo = JSON.parse(localStorage.getItem("userProfile")) || {};
     setuserprofile(getinfo);
     const userId = getinfo.id; 
+    const Subscription = async (id) => {
+      try {
+        const response = await axios.get(`${BaseUrl}/userroute/packageIdget/${id}`);
+        setList(response.data);
+      } catch (err) {
+        console.log(err, "Error");
+      }
+    };
+    const packageGet = async () => {
+      try {
+        const response = await axios.get(`${BaseUrl}/userroute/subpacakge`);
+        setpackagelist(response.data);
+      } catch (err) {
+        console.log(err, "Error");
+      }
+    };
     Subscription(userId);
     packageGet();
+    if(!localStorage.getItem("usertoken")){
+      navigate('/')
+    }
   }, []); 
+
+        
   return (
-    <div className="body1">
-      <Navbar />
-      <header className="ScriptHeader">
-        <div className="rt-container">
-          <div className="col-rt-12"></div>
-        </div>
-      </header>
-      <section className="ScriptSection">
+    <div>
+      <Navbar  />
+      <section style={{
+        backgroundImage: `url(${Userprofilebg})`,
+        backgroundSize:"cover",
+        backgroundPosition:"center",
+        backgroundRepeat:"no-repeat"
+
+      }} >
         <div className="rt-container">
           <div className="col-rt-12">
             <div className="Scriptcontent">
-              {/* Student Profile */}
-              <div className="student-profile py-4">
+              <div className="student-profile">
                 <div className="container">
                   <div className="row">
                     <div className="col-lg-4">
-                      <div className="card shadow-sm">
+                      <div className="card">
                         <div className="card-header bg-transparent text-center">
                           <img
                             className="profile_img"
                             src={`${BaseUrl}/${userProfile.image}`}
-                            alt="user dp"
+                            alt="User Pic"
                           />
                           <h3>{userProfile.username}</h3>
                         </div>
@@ -77,8 +84,8 @@ function userProfile() {
                         </div>
                       </div>
                     </div>
-                    <div className="col-lg-8">
-                      <div className="card shadow-sm">
+                    <div className="col-lg-6">
+                      <div className="card">
                         <div className="card-header bg-transparent border-0">
                           <h3 className="mb-0">
                             <i className="far fa-clone pr-1" />
@@ -122,19 +129,17 @@ function userProfile() {
                           </table>
                         </div>
                       </div>
-                      <div style={{ height: 26 }} />
-                      <div className="card shadow-sm">
-                        <div className="card-header bg-transparent border-0">
-                          <h3 className="mb-0">
-                            <i className="far fa-clone pr-1" />
-                            Recent subscription
+                      <div className="card my-4">
+                        <div className="p-2">
+                          <h3 className="">
+                            Recent Plan
                           </h3>
                         </div>
-                        <div className=" container card-body pt-0">
+                        <div className="container">
                           <div className="row">
                             {list && (
-                              <div className="col-md-6 col-lg-6">
-                                <Card style={{ width: "18rem" }}>
+                              <div className="col-md-4 col-lg-8 pb-2">
+                                <Card>
                                   <Card.Body>
                                     <Card.Title>
                                       {
@@ -156,13 +161,11 @@ function userProfile() {
                   </div>
                 </div>
               </div>
-              {/* partial */}
             </div>
           </div>
         </div>
       </section>
       <Footer />
-      {/* Analytics */}
     </div>
   );
 }

@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import Navbar from "./Navbar";
+import Navbar from "./navbar";
 import Footer from "./footer";
 import bannerimage2 from "../assets/img/breadcrumb/classes-breadcrumb.jpg";
 import Aboutpic from "../assets/img/about-pic.jpg";
@@ -7,9 +6,7 @@ import AboutPng from "../assets/img/play.png";
 import Aboutsignature from "../assets/img/about-signature.png";
 import AboutAward from "../assets/img/award.jpg";
 import AboutPersonpng from "../assets/img/banner-person.png";
-
 function about() {
- 
   return (
     <div>
       <Navbar />
@@ -21,7 +18,7 @@ function about() {
           <div className="row">
             <div className="col-lg-12">
               <div className="breadcrumb-text">
-                <h2>About</h2>
+                <h2 style={{ fontSize: 'clamp(1.5rem, 2vw + 1rem, 3rem)'}}>About</h2>
               </div>
             </div>
           </div>
@@ -34,12 +31,12 @@ function about() {
           <div className="row">
             <div className="col-lg-6">
               <div className="about-pic">
-                <img src={Aboutpic} alt />
+                <img src={Aboutpic} alt="No Image" />
                 <a
                   href="https://www.youtube.com/watch?v=SlPhMPnQ58k"
                   className="play-btn video-popup"
                 >
-                  <img src={AboutPng} alt />
+                  <img src={AboutPng} alt="No Image"  />
                 </a>
               </div>
             </div>
@@ -55,7 +52,7 @@ function about() {
                   experiences. We understand the challenges and triumphs that accompany every step
                   towards better health because weve walked that path ourselves.
                 </p>
-                <img src={Aboutsignature} alt />
+                <img src={Aboutsignature} alt="No Image"  />
                 <div className="at-author">
                   <h4>Muhammed Nawaf</h4>
                   <span>CEO - Founder</span>
@@ -111,7 +108,7 @@ function about() {
               </div>
             </div>
             <div className="col-lg-4">
-              <img src={AboutAward} alt />
+              <img src={AboutAward} alt="No Image"  />
             </div>
           </div>
         </div>
@@ -146,7 +143,7 @@ function about() {
               </div>
             </div>
             <div className="col-lg-5">
-              <img src={AboutPersonpng} alt />
+              <img src={AboutPersonpng} alt="No Image"  />
             </div>
           </div>
         </div>

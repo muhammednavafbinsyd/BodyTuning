@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "../assets/usercss/style.css";
-import Navbar from "./Navbar";
+import Navbar from "./navbar";
 import Footer from "./footer";
 import bannerimg4 from "../assets/img/breadcrumb/classes-breadcrumb.jpg";
-import { Helmet } from "react-helmet";
 import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
-
 function blog() {
   const BaseUrl = process.env.REACT_APP_BASE_URL
   const [list, setlist] = useState([]);
   const navigate = useNavigate("")
-
   useEffect(() => {
     blogdata();
   }, []);
@@ -30,13 +27,8 @@ function blog() {
     navigate(`/blogview/${encodeURIComponent(formattedTitle)}`);
   };
 
-
   return (
     <div>
-      <Helmet>
-        <title>BodyTuning-blogs</title>
-        <meta name="description" content="Description of your blog page" />
-      </Helmet>
       <Navbar />
       <section
         className="breadcrumb-section set-bg"
@@ -46,7 +38,7 @@ function blog() {
           <div className="row">
             <div className="col-lg-12">
               <div className="breadcrumb-text">
-                <h2>Blog</h2>
+                <h2 style={{ fontSize: 'clamp(1.5rem, 2vw + 1rem, 3rem)'}}>Blog</h2>
               </div>
             </div>
           </div>
@@ -58,7 +50,7 @@ function blog() {
             {list.map((item,index) => (
               <div className="col-lg-4 col-md-6" key={index}>
                 <div className="single-blog-item">
-                  <img style={{ cursor: 'pointer' }} onClick={() => handleImageClick(item.title)}  src={`http://localhost:2000/uploads/${item.image}`} alt />
+                  <img style={{ cursor: 'pointer' }} onClick={() => handleImageClick(item.title)} src={`http://localhost:2000/uploads/${item.image}`} alt="No Image" />
                   <div className="blog-widget">
                     <div className="bw-date">February 17, 2019</div>
                     <Link

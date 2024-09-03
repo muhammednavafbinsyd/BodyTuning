@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Navbar from "./Navbar";
+import Navbar from "./navbar";
 import Footer from "./footer";
 import bannert from "../assets/img/blog/top-view-different-objects-sport.jpg";
 
@@ -35,7 +35,7 @@ function BlogView() {
           <div className="row">
             <div className="col-lg-12">
               <div className="breadcrumb-text">
-                <h2>Blog</h2>
+                <h2 style={{ fontSize: 'clamp(1.5rem, 2vw + 1rem, 3rem)'}}>Blog</h2>
                 <div className="contact-option">
                   <span style={{ fontSize: "1rem" }}>Detail Blog</span>
                 </div>

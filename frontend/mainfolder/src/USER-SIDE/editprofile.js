@@ -1,21 +1,23 @@
 import React, { useCallback, useEffect, useState } from "react";
-import "../assets/usercss/userprofile.css";
-import "../assets/usercss/demo.css";
+import "../assets/usercss/user-profile.css";
 import SoftInput from "components/SoftInput";
 import SoftBox from "components/SoftBox";
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate} from "react-router-dom";
 import axios from "axios";
 import SoftButton from "components/SoftButton";
-import userProfile from "./userProfile";
-import Navbar from "./Navbar";
+import Navbar from "./navbar";
 import Footer from "./footer"
-
+import Userprofilebg from "../assets/img/hero-bg.jpg"
 function Editprofile() {
   const BaseUrl = process.env.REACT_APP_BASE_URL
+  const navigate = useNavigate()
   const [userProfile, setuserprofile] = useState("");
   useEffect(() => {
-    const getinfo = JSON.parse(localStorage.getItem("userProfile")) || {};
+  const getinfo = JSON.parse(localStorage.getItem("userProfile")) || {};
     setuserprofile(getinfo);
+    if(!localStorage.getItem("usertoken")){
+      navigate('/')
+    }
   }, []);
   const { id } = useParams();
   const [image, setimage] = useState("");
@@ -113,15 +115,12 @@ const [inavalid,setinvalid] = useState("");
           },
         }
       );
-      window.location.href = "/userprofile";
+      navigate("/userprofile")
       localStorage.setItem("userProfile", JSON.stringify(response.data.userProfile));
       setinvalid("")
       alert(data, "successfully updated userProfile ");
     } catch (err) {
       console.log(err, "error updating userProfile datas");
-      if(err.response && err.response.status === 400){
-        setinvalid("Email is already exists");
-      }
     }
   }
   };
@@ -133,15 +132,14 @@ const [inavalid,setinvalid] = useState("");
   };
 
   return (
-    <div className="body1">
+    <div>
       <Navbar/>
-      <header className="ScriptHeader">
-        <div className="rt-container">
-          <div className="col-rt-12">
-          </div>
-        </div>
-      </header>
-      <section   className="ScriptSection"  >
+      <section style={{
+        backgroundImage: `url(${Userprofilebg})`,
+        backgroundSize:"cover",
+        backgroundPosition:"center",
+        backgroundRepeat:"no-repeat"
+      }} >
         <div className="rt-container">
           <div className="col-rt-12">
             <div className="Scriptcontent">

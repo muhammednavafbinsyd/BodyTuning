@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "./Navbar";
+import Navbar from "./navbar";
 import Footer from "./footer";
 import "../assets/usercss/style.css";
 import bannerimg6 from "../assets/img/breadcrumb/classes-breadcrumb.jpg";
@@ -41,7 +41,7 @@ function gallery() {
           <div className="row">
             <div className="col-lg-12">
               <div className="breadcrumb-text">
-                <h2>Gallery</h2>
+                <h2 style={{ fontSize: 'clamp(1.5rem, 2vw + 1rem, 3rem)'}}>Gallery</h2>
               </div>
             </div>
           </div>

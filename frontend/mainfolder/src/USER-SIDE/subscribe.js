@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "./Navbar";
+import Navbar from "./navbar";
 import Footer from "./footer";
 import "../assets/usercss/style.css";
 import bgimg from "../assets/img/pexels-victor-freitas-2261477.jpg";
@@ -96,7 +96,7 @@ function subscribe() {
           <div className="row">
             <div className="col-lg-12">
               <div className="breadcrumb-text">
-                <h2>Add Your Plan Today</h2>
+                <h2 style={{ fontSize: 'clamp(1.5rem, 2vw + 1rem, 3rem)'}}>Add Your Plan Today</h2>
               </div>
             </div>
           </div>

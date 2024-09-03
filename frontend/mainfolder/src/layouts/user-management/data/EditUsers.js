@@ -14,14 +14,12 @@ Coded by www.creative-tim.com
 */
 import { useState, useCallback, useEffect } from "react";
 // react-router-dom components
-import { Link } from "react-router-dom";
 // @mui material components
 import Card from "@mui/material/Card";
 // Soft UI Dashboard React components
 import SoftBox from "components/SoftBox";
 import SoftInput from "components/SoftInput";
 import SoftButton from "components/SoftButton";
-import SoftTypography from "components/SoftTypography";
 import InputAdornment from "@mui/material/InputAdornment";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 // Authentication layout components
@@ -29,9 +27,10 @@ import BasicLayout from "layouts/authentication/components/BasicLayout";
 import axios from "axios";
 // Images
 import curved6 from "assets/images/curved-images/curved14.jpg";
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 function EditUser() {
   const BaseUrl = process.env.REACT_APP_BASE_URL;
+  const navigate = useNavigate();
   const [showPassword, setshowPassword] = useState(false);
   const { id } = useParams();
   const [invalid, setinvalid] = useState("");
@@ -48,7 +47,7 @@ function EditUser() {
     image: null,
   });
   useEffect(() => {
-    const fetchUserData = useCallback(async () => {
+    const fetchUserData = async () => {
       const token = localStorage.getItem("token");
       axios.defaults.headers.common["Authorization"] = token;
       try {
@@ -58,9 +57,9 @@ function EditUser() {
       } catch (err) {
         console.log(err);
       }
-    }, [id]);
+    }
     fetchUserData();
-  }, [fetchUserData]);
+  }, []);
   const handleUpdate = async (e) => {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token;
@@ -126,8 +125,7 @@ if(validationErrors.length === 0){
     );
     if (response.status === 200) {
       setinvalid("");
-      window.location.href = "/users";
-      // alert("User updated successfully");
+      navigate("/users");
     }
   } catch (err) {
     if (err.response.status === 400) {

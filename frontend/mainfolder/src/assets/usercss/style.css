@@ -1,13 +1,5 @@
-/******************************************************************
-  Template Name: Gutim
-  Description: Gutim Fitness HTML Template
-  Author: Colorlib
-  Author URI: http://colorlib.com
-  Version: 1.0
-  Created: Colorlib
-******************************************************************/
 
-/*------------------------------------------------------------------
+/*-----------------------------------------------------------------
 [Table of contents]
 
 1.  Template default CSS
@@ -26,11 +18,7 @@
 10.  Footer Style
 
 -------------------------------------------------------------------*/
-
-/*----------------------------------------*/
-
-/* Template default CSS
-/*----------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 /* trainerprofile */
 
@@ -42,20 +30,6 @@
 .prof-file-img {
 	width: 20rem;
 	border-radius: 10px;
-}
-
-
-@media only screen and (max-width: 992px) {
-
-	/* .nav-menu {
-		float: left !important;
-	} 
-html,
-body {
-	height: 100%;
-	font-family: "Poppins", sans-serif;
-	-webkit-font-smoothing: antialiased;
-	/* font-smoothing: antialiased; */
 }
 
 h1,
@@ -70,7 +44,7 @@ h6 {
 	font-family: "Poppins", sans-serif;
 }
 
-h1 {
+h1 { 
 	font-size: 70px;
 }
 
@@ -179,6 +153,15 @@ ol {
 
 
 
+.dropdwn .dropdown-toggle{
+	outline: none;
+	box-shadow: none;
+	border: none;
+  }
+.custom-dropdown-menu{
+	background-color: rgba(176, 19, 19, 0.5);
+	backdrop-filter: blur(2px);
+}
 .primary-btn {
 	display: inline-block;
 	font-size: 16px;
@@ -241,8 +224,6 @@ ol {
 
 /* 
 
-
-
 */
 /*---------------------
   Header
@@ -272,6 +253,7 @@ ol {
 
 .nav-menu {
 	float: right;
+	display: inline-flex;
 }
 
 .nav-menu .mainmenu {
@@ -1228,7 +1210,7 @@ ol {
 	right: -10px;
 	top: 0;
 	content: "";
-	font-family: "FontAwesome";
+	font-family: "Poppins", sans-serif;
 }
 
 .breadcrumb-text .breadcrumb-option span {
@@ -1931,46 +1913,29 @@ ol {
 	.container {
 		max-width: 1170px;
 	}
-
-	/* .nav-menu  {
-		float: right;
-	} */
-
-
-
+	.logo{
+		position: absolute;
+		left: 3rem;
+	}
 }
 
 @media only screen and (min-width: 1199px) {
-
-	/* .nav-menu  {
-		float: inline-end;
-	} */
-	.logo {
-		float: left;
-
+	.logo{
+		position: absolute;
+		left: 3rem;
 	}
-
-	.logo a {
-		display: inline-block;
-		/* padding: 24px 0 29px; */
-	}
-
-
 }
 
 /* Medium Device: 1200px */
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-
-	/* .nav-toggler{
-	display:block !important;
-} */
+	.logo{
+		position: absolute;
+		left: 3rem;
+	}
 	.nav-menu {
 		float: right;
-		/* display: none; */
 	}
-
-
 	.services-item {
 		padding-top: 70px;
 		padding-left: 37px;
@@ -2035,8 +2000,6 @@ ol {
 }
 
 @media only screen and (max-width: 991px) {
-
-
 	.nav-menu .mainmenu {
 		display: inline-block;
 	}
@@ -2076,20 +2039,6 @@ ol {
 		-o-transition: all 0.3s;
 		transition: all 0.3s;
 	}
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	.toggler-div {
 		width: 100%;
@@ -2353,6 +2302,7 @@ ol {
 
 	.nav-toggler {
 		display: block !important;
+		
 	}
 
 	.hero-text h1 {
@@ -2424,7 +2374,7 @@ ol {
 	align-items: center;
 	justify-content: center;
 	background-color: #f9f9f9;
-	font-family: 'Open Sans', sans-serif;
+	font-family: "Poppins", sans-serif;
 	position: relative;
 	top: 14vh;
 }

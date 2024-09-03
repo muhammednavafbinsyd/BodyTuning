@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "./Navbar";
+import Navbar from "./navbar";
 import Footer from "./footer";
 import { useState, useCallback, useEffect } from "react";
 import Card from "@mui/material/Card";
@@ -65,7 +65,7 @@ function Dietplan() {
           <div className="row">
             <div className="col-lg-12">
               <div className="breadcrumb-text">
-                <h2>Diet</h2>
+                <h2 style={{ fontSize: 'clamp(1.5rem, 2vw + 1rem, 3rem)'}}>Diet</h2>
               </div>
             </div>
           </div>

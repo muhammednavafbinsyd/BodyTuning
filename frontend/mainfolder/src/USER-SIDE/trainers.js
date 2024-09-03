@@ -1,5 +1,6 @@
+import "../assets/usercss/user-profile.css"
 import React from "react";
-import Navbar from "./Navbar";
+import Navbar from "./navbar";
 import bannert from "../assets/img/hero-bg.jpg";
 import Footer from "./footer";
 import axios from "axios";
@@ -11,7 +12,6 @@ function trainers() {
   const BaseUrl = process.env.REACT_APP_BASE_URL
   const [list, setList] = useState([]);
   const [profile, setProfile] = useState([]);
-  const [cheking, setCheking] = useState([]);
   const [hide, setHide] = useState(false);
   const [show, setShow] = useState(false);
   useEffect(() => {
@@ -33,7 +33,6 @@ function trainers() {
   const ChekingActiveAndExpired = async () => {
     try {
       const response = await axios.get(`${BaseUrl}/userroute/foractiveorexpired`);
-      setCheking(response.data.data);
       if (response.data.status === "active" && Object.keys(profile).length > 0) {
         setShow(true);
         setHide(false);
@@ -53,9 +52,7 @@ function trainers() {
       console.log(err, "error getting trainers");
     }
   };
-  const stylerow = {
-    marginTop: "10%",
-  };
+
   return (
     <div>
       <Navbar />
@@ -64,7 +61,7 @@ function trainers() {
           <div className="row">
             <div className="col-lg-12">
               <div className="breadcrumb-text">
-                <h2>Our trainers</h2>
+                <h2 style={{ fontSize: 'clamp(1.5rem, 2vw + 1rem, 3rem)'}}>Our trainers</h2>
               </div>
             </div>
           </div>
@@ -76,18 +73,18 @@ function trainers() {
             <div className="row">
               <div className="col-lg-12">
                 <div className="section-title">
-                  <h2>TRAINERS</h2>
+                  <h2 style={{ fontSize: 'clamp(1.5rem, 2vw + 1rem, 3rem)'}}>TRAINERS</h2>
                 </div>
               </div>
             </div>
             <div className="row">
               {list.map((item) => (
-                <div className="col-lg-4 col-md-6  " style={stylerow} key={item._id}>
-                  <div className="single-trainer-item">
+                <div className="col-lg-4 col-md-6" key={item._id}>
+                  <div className="single-trainer-item my-20">
                     <img
                       style={{ height: "35rem" }}
-                      src={`${BaseUrl}/${item.image[1]}`}
-                      alt
+                      src={`${BaseUrl}/${item.image[0]}`}
+                      alt="No Image"
                     />
                     <div className="trainer-text">
                       <h5>{item.firstname}</h5>
@@ -122,16 +119,15 @@ function trainers() {
             </div>
             <Row className="row">
               {list.slice(0, 3).map((item) => (
-                <div className="col-lg-4 col-md-6 m-7" key={item._id}>
-                  <div className="single-trainer-item">
+                <div className="col-md-6 col-lg-4"  key={item._id}>
+                  <div className="single-trainer-item my-20">
                     <img
                       style={{ height: "35rem" }}
-                      src={`${BaseUrl}/${item.image[1]}`}
-                      alt
+                      src={`${BaseUrl}/${item.image[0]}`}
+                      alt="No Image"
                     />
                     <div className="trainer-text">
                       <h5>{item.firstname}</h5>
-
                       <span>{item.description}</span>
                       <br />
                       <Button
@@ -147,17 +143,12 @@ function trainers() {
                 </div>
               ))}
             </Row>        
-              <div className="col-sm-9 col-md-9 col-lg-8">
-                <h3 style={{ position: "relative", left: "20rem", top: "8rem"}}>
-                  Subscribe for view more trainers
-                </h3>
-              </div>
           </div>
         </section>
       )}
       <Footer />
     </div>
-  );
+  ); 
 }
 
 export default trainers;

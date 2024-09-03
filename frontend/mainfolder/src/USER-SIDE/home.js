@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
 import "../assets/usercss/style.css";
-import Navbar from "./Navbar";
+import React, { useEffect, useState } from "react";
+import Navbar from "./navbar";
 import SoftBox from "components/SoftBox";
 import SoftInput from "components/SoftInput";
 import SoftButton from "components/SoftButton";
@@ -18,6 +18,7 @@ import bannerimage2 from "../assets/img/banner-bg.jpg";
 import personimage from "../assets/img/banner-person.png";
 import bannerimage from "../assets/img/hero-bg.jpg";
 import axios from "axios";
+import { Link } from "react-router-dom";
 function Home() {
   const BaseUrl = process.env.REACT_APP_BASE_URL
   const [heightValue, setHeightValue] = useState("");
@@ -203,7 +204,7 @@ function Home() {
             <div className="col-lg-8">
               <div className="hero-text">
                 <span>Check your bmi</span>
-                <h1>BMI CALCULATOR</h1>
+                <h1 style={{ fontSize: 'clamp(1.5rem, 2vw + 1rem, 3rem)'}}>BMI CALCULATOR</h1>
 
                 <SoftBox className="your_bmi">
                   <SoftInput
@@ -246,12 +247,12 @@ function Home() {
           <div className="row">
             <div className="col-lg-6">
               <div className="about-pic">
-                <img src={aboutpic2} alt />
+                <img src={aboutpic2} alt="No Image" />
                 <a
                   href="https://www.youtube.com/watch?v=SlPhMPnQ58k"
                   className="play-btn video-popup"
                 >
-                  <img src={aboutpic1} alt />
+                  <img src={aboutpic1}alt="No Image" />
                 </a>
               </div>
             </div>
@@ -291,7 +292,7 @@ function Home() {
           <div className="row">
             <div className="col-lg-6">
               <div className="services-pic">
-                <img src={ser2} alt />
+                <img src={ser2} alt="No Image"/>
               </div>
             </div>
             <div className="col-lg-6">
@@ -299,7 +300,7 @@ function Home() {
                 <div className="row">
                   <div className="col-md-6">
                     <div className="services-item bg-gray">
-                      <img src={ser3} alt />
+                      <img src={ser3}alt="No Image"/>
                       <h4>Strategies</h4>
                       <p>
                         Strategies are comprehensive plans or methods devised to achieve specific
@@ -307,7 +308,7 @@ function Home() {
                       </p>
                     </div>
                     <div className="services-item bg-gray pd-b">
-                      <img src={ser4} alt />
+                      <img src={ser4} alt="No Image"/>
                       <h4>Workout</h4>
                       <p>
                         A workout refers to a structured physical activity or exercise routine
@@ -318,14 +319,14 @@ function Home() {
                   </div>
                   <div className="col-md-6">
                     <div className="services-item">
-                      <img src={ser6} alt />
+                      <img src={ser6} alt="No Image" />
                       <h4>Yoga</h4>
                       <p>
                         Yoga is a transformative practice that extends beyond physical exercise.
                       </p>
                     </div>
                     <div className="services-item pd-b">
-                      <img src={ser5} alt />
+                      <img src={ser5} alt="No Image"/>
                       <h4>Weight Loss</h4>
                       <p>
                         Weight loss refers to the reduction of body mass, typically achieved by a
@@ -352,7 +353,7 @@ function Home() {
             </div>
           </div>
           <div className="row classes-slider owl-carousel">
-            {list.map((item, index) => (
+            {list.map((item,index) => (
               <div key={index} className="col-lg-4">
                 <div
                   className="single-class-item set-bg"
@@ -380,13 +381,13 @@ function Home() {
             </div>
           </div>
           <div className="row">
-            {listStatus.map((item) => (
-              <div className="col-lg-4 col-md-6" key={item._id}>
+            {listStatus.map((item,index) => (
+              <div className="col-lg-4 col-md-6" key={index}>
                 <div className="single-trainer-item">
                   <img
                     style={{ height: "41rem" }}
                     src={`${BaseUrl}/${item.image[1]}`}
-                    alt
+                    alt="No Image"
                   />
 
                   <div className="trainer-text">
@@ -413,17 +414,17 @@ function Home() {
             </div>
           </div>
           <div className="row">
-            {listTestimonials.map((item) => (
-              <div className="col-lg-10 offset-lg-1" key={item}>
+            {listTestimonials.map((item,index) => (
+              <div className="col-lg-10 offset-lg-1" key={index}>
                 <div className="testimonial-slider owl-carousel">
                   <div className="testimonial-item">
                     <p style={{ color: "grey" }}>
                       {item.description}                 
                     </p>
                     <div className="ti-pic">
-                      <img src={`${BaseUrl}/uploads/${item.image}`} alt />
+                      <img src={`${BaseUrl}/uploads/${item.image}`} alt="No Image" />
                       <div className="quote">
-                        <img src={testi2} alt />
+                        <img src={testi2} alt="No Image"/>
                       </div>
                     </div>
                     <div className="ti-author">
@@ -464,13 +465,13 @@ function Home() {
                   Contact us today to embark on a transformative journey towards a healthier, more
                   vibrant you!
                 </p>
-                <a href="/contact" className="primary-btn banner-btn">
+                <Link to="/contact" className="primary-btn banner-btn">
                   Contact Now
-                </a>
+                </Link>
               </div>
             </div>
             <div className="col-lg-5">
-              <img src={personimage} alt />
+              <img src={personimage} alt="No Image"/>
             </div>
           </div>
         </div>
@@ -487,8 +488,8 @@ function Home() {
             </div>
           </div>
           <div className="row">
-            {membershiplist.slice(0, 3).map((item) => (
-              <div className="col-lg-4" key={item}>
+            {membershiplist.slice(0, 3).map((item,index) => (
+              <div className="col-lg-4" key={index}>
                 <div className="membership-item">
                   <div className="mi-title">
                     <h4>{item.membershiptype}</h4>
@@ -619,7 +620,7 @@ function Home() {
             </div>
             <div className="col-lg-4">
               <div className="register-pic">
-                <img src={register} alt />
+                <img src={register} alt="No Image" />
               </div>
             </div>
           </div>

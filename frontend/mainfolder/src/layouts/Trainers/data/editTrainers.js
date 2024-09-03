@@ -12,10 +12,10 @@ Coded by www.creative-tim.com
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
-import { useCallback, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 // react-router-dom components
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 // @mui material components
 import Card from "@mui/material/Card";
 import Checkbox from "@mui/material/Checkbox";
@@ -33,6 +33,7 @@ import data from "layouts/dashboard/components/Projects/data";
 import { IeOutlined } from "@ant-design/icons";
 function EditTrainers() {
   const BaseUrl = process.env.REACT_APP_BASE_URL;
+  const navigate = useNavigate()
   const { id } = useParams();
   const [invalid, setinvalid] = useState("");
   const [type,settype]= useState([])
@@ -54,7 +55,7 @@ function EditTrainers() {
     }
   }
   useEffect(() => {
-    const fetchdata = useCallback(async () => {
+    const fetchdata = async () => {
       const token = localStorage.getItem("token");
       axios.defaults.headers.common["Authorization"] = token;
       try {
@@ -65,10 +66,10 @@ function EditTrainers() {
       } catch (err) {
         console.log(err);
       }
-    }, [id]);
+    }
     fetchdata();
     typeofplan();
-  }, [fetchdata]);
+  }, []);
   const handleUpdate = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
@@ -97,7 +98,7 @@ function EditTrainers() {
         }
       );
       if (response.status === 200) {
-        window.location.href = "/Trianers";
+        navigate("/trianers")
         setinvalid("");
       }
     } catch (err) {

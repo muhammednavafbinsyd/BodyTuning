@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Navbar from "./Navbar";
+import Navbar from "./navbar";
 import Footer from "./footer";
 import bgimg from "../assets/img/banner-bg.jpg";
 import axios from "axios";

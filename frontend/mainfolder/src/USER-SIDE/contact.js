@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import Navbar from "./Navbar";
 import "../assets/usercss/style.css";
+import React, {  useState } from "react";
+import Navbar from "./navbar";
 import bannerimg5 from "../assets/img/hero-bg.jpg";
 import Ourlocation from "../assets/img/icon/location.png";
 import Phone from "../assets/img/icon/icon-2.png";
@@ -16,7 +16,6 @@ function contact() {
   const [input2, setInput2] = useState("");
   const [input3, setInput3] = useState("");
 
-
   const Messesge = async (e) => {
     e.preventDefault();
     if (!name) {
@@ -31,12 +30,10 @@ function contact() {
     } else {
       setInput2(null);
     }
-
     if(!msg){
       setInput3("Message is required");
     }else{
       setInput3(null);
-     
         const Sendmsg = {
           name: name,
           email: email,
@@ -54,9 +51,7 @@ function contact() {
 
       }
     }
-    
-
-
+  
   return (
     <div>
       <Navbar />
@@ -68,7 +63,7 @@ function contact() {
           <div className="row">
             <div className="col-lg-12">
               <div className="breadcrumb-text">
-                <h2>Contact</h2>
+                <h2 style={{ fontSize: 'clamp(1.5rem, 2vw + 1rem, 3rem)'}}>Contact</h2>
               </div>
             </div>
           </div>
@@ -105,7 +100,7 @@ function contact() {
                     </div>
                     <div className="cw-text">
                       <h5>Mail</h5>
-                      <p style={{color:"white"}} >bodytuning@gmail.com</p>
+                      <p style={{color:"white"}}>bodytuning@gmail.com</p>
                     </div>
                   </div>
                 </div>

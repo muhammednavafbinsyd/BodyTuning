@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import crypto from "crypto-js";
-import PropTypes from "prop-types";
 import Axios from "axios";
+
 // Function to load script and append in DOM tree.
 const loadScript = (src) =>
   new Promise((resolve) => {
@@ -21,6 +22,7 @@ const loadScript = (src) =>
 const RenderRazorpay = ({ orderId, keyId, keySecret, currency, amount }) => {
   const paymentId = useRef(null);
   const paymentMethod = useRef(null);
+  const navigate = useNavigate()
   // To load razorpay checkout modal script.
   const displayRazorpay = async (options) => {
     const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
@@ -82,7 +84,7 @@ const RenderRazorpay = ({ orderId, keyId, keySecret, currency, amount }) => {
           paymentId:response.razorpay_payment_id,
           signature: response.razorpay_signature,        
         });
-        window.location.href ="/mysubscription"
+        navigate("/mysubscription")
       } else {
         handlePayment("failed", {
           orderId:orderId,
@@ -134,10 +136,6 @@ const RenderRazorpay = ({ orderId, keyId, keySecret, currency, amount }) => {
     },
   };
 
-  // useEffect(() => {
-  //   console.log("in razorpay");
-  //   displayRazorpay(options);
-  // }, []);
   useEffect(() => {
     console.log("in razorpay");
     const initRazorpay = async () => {

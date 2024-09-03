@@ -1,9 +1,6 @@
 import React from "react";
-import Footer from "./footer";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import { FaSquareXTwitter, FaInstagram, FaDribbble } from "react-icons/fa6";
-import { BsSend } from "react-icons/bs";
-
 function footer() {
   return (
     <div>

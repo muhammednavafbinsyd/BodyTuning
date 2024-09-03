@@ -12,10 +12,9 @@ Coded by www.creative-tim.com
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
-
 import { useState } from "react";
 // react-router-dom components
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 // @mui material components
 // Soft UI Dashboard React components
 import SoftBox from "components/SoftBox";
@@ -31,6 +30,7 @@ import curved9 from "assets/images/curved-images/white-curved.jpeg";
 import axios from "axios";
 function SignIn() {
   const BaseUrl = process.env.REACT_APP_BASE_URL
+  const naviate = useNavigate()
   const [input1, setinput1] = useState("");
   const [input2, setinput2] = useState("");
   const [invalid, setinvalid] = useState("");
@@ -38,7 +38,8 @@ function SignIn() {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-  function btn() {
+  function btn(event) {
+    event.preventDefault();
     if (input1 === "" && input2 === "") {
       setinvalid("Enter email or password");
     } else {
@@ -53,7 +54,7 @@ function SignIn() {
             localStorage.setItem("token", response.data.token);
             localStorage.setItem("adminprofile",JSON.stringify(response.data.admin));       
           }      
-          window.location.href = "/dashboard";
+          naviate("/dashboard")
         })
         .catch((err) => {
           console.log(err);
@@ -67,7 +68,7 @@ function SignIn() {
       description="Enter your email and password to sign in"
       image={curved9}
     >
-      <SoftBox component="form" role="form">
+      <form  role="form" onSubmit={btn}>
         <SoftBox mb={3}>
           <SoftBox mb={1} ml={0.5}>
             {invalid && <p style={{ color: "red" }}>{invalid}</p>}
@@ -100,27 +101,11 @@ function SignIn() {
         </SoftBox>
           <Link style={{position:"relative", left:"13rem" ,bottom:"27px" ,fontSize:"small"}} to={"/forgetpassword"}>Forgot password?</Link>
         <SoftBox mt={4} mb={1}>
-          <SoftButton onClick={btn} variant="gradient" color="info" fullWidth>
+          <SoftButton type="submit" variant="gradient" color="info" fullWidth>
             sign in
           </SoftButton>
         </SoftBox>
-        <SoftBox mt={3} textAlign="center">
-          <SoftTypography variant="button" color="text" fontWeight="regular">
-            Don&apos;t have an account?{" "}
-            <SoftTypography
-              component={Link}
-              to="/authentication/sign-up"
-              variant="button"
-              color="info"
-              fontWeight="medium"
-              textGradient
-            >
-              Sign up
-            </SoftTypography>
-            <Link to={"/dashboard"}>to dashboard</Link>
-          </SoftTypography>
-        </SoftBox>
-      </SoftBox>
+      </form>
     </CoverLayout>
   );
 }
