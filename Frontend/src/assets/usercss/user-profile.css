@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html {
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+a{
+	font-family: "Poppins", sans-serif;
+	text-decoration: none;
+	outline: none;
+}
+a:hover, a:focus {
+	color: #373e18;
+}
+section {
+    width: 100%; 
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    background:#111111; 
+ 
+}
+h2 {
+    color: #1a0e0e;
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0;
+}
+h2 span {
+    display: block;
+    padding: 0;
+    font-size: 18px;
+    margin-top: 5px;
+}
+  
+.student-profile  .profile_img {
+  width: 9.375rem;
+  height: 9.375rem;
+  object-fit: cover;
+  margin: 10px auto;
+  border: 10px solid #ccc;
+  border-radius: 50%;
+}
+.student-profile .card h3 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.student-profile .card p {
+  font-size: 16px;
+  color: #000;
+}
+.student-profile .table th,
+.student-profile .table td {
+  font-size: 14px;
+  padding: 5px 10px;
+  color: #000;
+}
+.ScriptHeader h1{
+	font-family:"Poppins", sans-serif;
+    font-size: 1.625rem;
+    font-weight: 700;
+    margin: 0;
+}
+.ScriptHeader h2 {
+    color: #312c8f;
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin: 5px 0 0;
+}
+.ScriptHeader h1 span {
+    display: block;
+    padding: 0;
+    font-size: 1.375rem;
+    opacity: 0.7;
+    margin-top: 5px;
+
+}
+.ScriptHeader span {
+    display: block;
+    padding: 0;
+    font-size: 22px;
+    opacity: 0.7;
+    margin-top: 1.375rem;
+}
+
+
+.rt-container {
+  margin: 0% auto;
+	padding-left:12px;
+	padding-right:12px;
+}
+
+@media (min-width: 1200px) {
+	.rt-container {
+		width: 73.125rem;
+	}
+	.col-rt-1 {
+		width:16.6%;
+	}
+	.col-rt-2 {
+		width:30.33%;
+	}
+	.col-rt-3 {
+		width:50%;
+	}
+	.col-rt-4 {
+		width: 67.664%;
+	}
+	.col-rt-5 {
+		width: 83.33%;
+	}
+}

@@ -1,0 +1,16 @@
+.users{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.display-popup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+.popup-input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
