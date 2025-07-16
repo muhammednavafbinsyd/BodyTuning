@@ -86,9 +86,7 @@ function Changepassword(){
     <div style={{ backgroundImage: `url(${Bgimage})` }}   >
       <Navbar />
       <div className="mainDiv" style={{ backgroundImage: `url(${Bgimage})` }}   >
-        <div className="cardStyle">
-   
-            
+        <div className="cardStyle">           
             <h2 className="formTitle">Change your password</h2>
             <div className="inputDiv">
               <label className="inputLabel" htmlFor="password">

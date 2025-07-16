@@ -1,9 +1,6 @@
 import "../assets/usercss/style.css";
 import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
-import SoftBox from "components/SoftBox";
-import SoftInput from "components/SoftInput";
-import SoftButton from "components/SoftButton";
 import Footer from "./footer";
 import ser2 from "../assets/img/services/service-pic.jpg";
 import ser3 from "../assets/img/services/service-icon-1.png";
@@ -206,35 +203,35 @@ function Home() {
                 <span>Check your bmi</span>
                 <h1 style={{ fontSize: 'clamp(1.5rem, 2vw + 1rem, 3rem)'}}>BMI CALCULATOR</h1>
 
-                <SoftBox className="your_bmi">
-                  <SoftInput
+                <div className="your_bmi">
+                  <input
                     className="bmi_input"
                     type="tel"
                     placeholder="Enter your height(cm)"
                     value={heightValue}
                     onChange={(e) => setHeightValue(e.target.value)}
-                  ></SoftInput>
-                  <SoftInput
+                  ></input>
+                  <input
                     className="bmi_input"
                     type="tel"
                     placeholder="Enter your weight(kg)"
                     value={weightValue}
                     onChange={(e) => setWeightValue(e.target.value)}
-                  ></SoftInput>
-                  <SoftButton className="primary-btn" onClick={Calculate}>
+                  ></input>
+                  <button className="primary-btn" onClick={Calculate}>
                     Calculate
-                  </SoftButton>
+                  </button>
                   {bmiValue && bmiMessage && (
-                    <SoftBox className="result">
+                    <div className="result">
                       <p>
                         Your BMI: <span className="bmi-value">{bmiValue}</span>
                       </p>
                       <p>
                         Result: <span className="bmi-message">{bmiMessage}</span>
                       </p>
-                    </SoftBox>
+                    </div>
                   )}
-                </SoftBox>
+                </div>
               </div>
             </div>
           </div>
@@ -382,10 +379,10 @@ function Home() {
           </div>
           <div className="row">
             {listStatus.map((item,index) => (
-              <div className="col-lg-4 col-md-6" key={index}>
+              <div className="col-lg-4 col-md-6 col-lg-" key={index}>
                 <div className="single-trainer-item">
                   <img
-                    style={{ height: "41rem" }}
+          
                     src={`${BaseUrl}/${item.image[1]}`}
                     alt="No Image"
                   />

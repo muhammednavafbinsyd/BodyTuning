@@ -1,4 +1,3 @@
-
 const asyncHandler = require("express-async-handler");
 const signupModel = require("../model/signupmodel");
 const bcrypt = require("bcrypt");
@@ -36,8 +35,6 @@ exports.changepassword = asyncHandler(async (req, res) => {
     res.status(500).json({ message: 'An error occurred while updating' });
   }
 });
-
-
 
 
 exports.otpsend = asyncHandler(async (req, res) => {
@@ -79,7 +76,6 @@ exports.otpsend = asyncHandler(async (req, res) => {
   }
 });
 
-
 exports.otpverify = asyncHandler(async (req, res) => {
     const { otp } = req.body;
     try {
@@ -97,13 +93,8 @@ exports.otpverify = asyncHandler(async (req, res) => {
     }
   });
 
-  
-
-
   exports.setnewpassword = asyncHandler(async (req, res) => {
     const { newPassword, confirmPassword, email } = req.body;
-
-  
     try {
        const YournewPassword = await signupModel.findOne({email:email});
      

@@ -69,7 +69,7 @@ function Login() {
     }
   };
   return (
-    <div className="py-72" style={{ backgroundImage: `url(${bglogin})`, 
+    <div className="py-80" style={{ backgroundImage: `url(${bglogin})`, 
       backgroundSize: 'cover', 
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',

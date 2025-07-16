@@ -36,6 +36,8 @@ exports.createAdmin = asyncHandler(async (req, res) => {
 
 exports.myadmins = asyncHandler(async (req, res) => {
   const { input1, input2 } = req.body;
+  console.log("hello i am hgere",req.body);
+  
   try {
     // Find the admin by email
     const adminData = await adminModel.findOne({ email: input1 });
